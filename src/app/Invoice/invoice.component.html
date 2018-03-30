@@ -1,0 +1,171 @@
+<!--
+Simple Invoice App
+
+- Primary focus is on line items
+- Line Item has the following fields:
+  - Id
+  - Description
+  - Quantity
+  - Rate
+
+- Line Item row needs to calculate subtotal of line item
+- Need ability to dynamically add line items
+- Need to calculate subtotal of all line items
+
+- Optional:
+  - Add field to set tax percent
+  - Calculate total cost of line items factoring in tax
+
+-->
+<div class="row"><!--main wrapper-->
+  <div class="col-md-8">
+    <div class="row"><!--left side wrapper-->
+      <div class="col-xs-12">
+        <div class="logo-addr">
+          <div id="logo">
+            <img src="img/logo.png" alt="Turner Industries + Charles139">
+          </div>
+          <div id="addr">
+            <ul>
+              <li>Turner Industries</li>
+              <li>8687 United Plaza Blvd</li>
+              <li>Baton Rouge, LA 70809</li>
+            </ul>
+          </div>
+        </div>
+        <div class="top-subFooter">
+          <img src="img/subFooter2.jpg" alt="Turner Industries + Charles139">
+        </div>
+        <div class="col-md-8">
+          <table class="table" id="inv_table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>Line Total</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5"> <button id="addLine" type="button" data-toggle="modal" data-target="#myModal" (click)="focusOnDescr()">+ Add a Line</button> </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td colspan="2" align="right">Subtotal</td>
+                <td>${{subTotal}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td colspan="2" align="right">Tax %</td>
+                <td align="left">
+                  <div class="input-group noMarg">
+                    <input [disabled]="this.taxDisabled" type="text" class="form-control" id="inp_tax" value="{{this.taxPerc}}" #inp_tax (keyup)="updateTaxPerc(inp_tax.value)">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td colspan="2" align="right">Tax $</td>
+                <td>{{taxDoll}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td colspan="2" align="right">Total Due</td>
+                <td>${{totalDue}}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="col-md-4 tot-inv-summ">
+          <h4>Amount Due</h4>
+          <h1>${{totalDue}}</h1>
+          <p class="billTo">Bill To</p>
+          <p class="tot-inv-p">Richard Ross</p>
+          <p class="tot-inv-p">Ros&eacute; Mayback, MS 00139</p>
+          <p class="tot-inv-num">Invoice Number</p>
+          <p>0001</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h1>Dashboard</h1>
+    <h4>Open Invoices</h4>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <p class="panel-title">001</p>
+      </div>
+      <div class="panel-body">
+        <p class="short-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="inv-tot">$22</p>
+      </div>
+      <div class="panel-footer">
+        <p class="inv-state">Sent</p>
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <p class="panel-title">001</p>
+      </div>
+      <div class="panel-body">
+        <p class="short-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="inv-tot">$22</p>
+      </div>
+      <div class="panel-footer">
+        <p class="inv-state">Sent</p>
+      </div>
+    </div>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <p class="panel-title">001</p>
+      </div>
+      <div class="panel-body">
+        <p class="short-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="inv-tot">$22</p>
+      </div>
+      <div class="panel-footer">
+        <p class="inv-state">Sent</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">New Invoice</h4>
+          </div>
+          <div class="modal-body">
+            <div class="input-group full">
+              <span class="input-group-addon">Description</span>
+              <input type="text" class="form-control" id="inp_descr">
+            </div>
+            <div class="input-group half">
+              <span class="input-group-addon">Quantity</span>
+              <input type="number" class="form-control" id="inp_quan">
+            </div>
+            <div class="input-group half">
+              <span class="input-group-addon">Rate</span>
+              <input type="number" class="form-control" id="inp_rate">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="addInvoice()" data-dismiss="modal">Add Invoice</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

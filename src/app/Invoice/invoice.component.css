@@ -1,0 +1,80 @@
+div.logo-addr {
+    background-color: #f2f2f2;
+    padding: 3%;
+}
+div#addr, div#logo {
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+}
+div#logo img {
+    width: 100%;
+}
+div#addr ul {
+    list-style: none;
+    text-align: right;
+    color: #005A3C;
+    font-weight: bold;
+}
+div.top-subFooter img {
+    width: 100%;
+}
+th {
+    color: #00573D;
+}
+button#addLine {
+    width: 100%;
+    border-style: dashed;
+    background: white;
+    color: darkgray;
+    font-weight: bold;
+}
+input#inp_tax {
+    width: 65px;
+}
+div.tot-inv-summ {
+  text-align: right;
+}
+p.billTo, p.tot-inv-num {
+    font-weight: bold;
+    margin-top: 30px;
+    color: #00573D;
+}
+p.tot-inv-p {
+    margin-bottom: 0;
+}
+.panel-footer {
+    background-color: #DFF0D8;
+}
+p.inv-tot {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00573D;
+}
+p.inv-state {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #00573D;
+    margin-bottom: 0;
+}
+div.input-group {
+    margin-bottom: 10px;
+}
+div.noMarg {
+  margin-bottom: 0;
+}
+div.input-group.full {
+    width: 96.5%;
+}
+div.input-group.half {
+    width: 48%;
+    display: inline-table;
+}
+@media(min-width: 480px) and (max-width: 991px) {
+  .panel {
+      width: 310px;
+      display: inline-block;
+      margin-right: 3px;
+  }
+}
