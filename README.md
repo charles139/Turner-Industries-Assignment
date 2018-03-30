@@ -14,7 +14,7 @@ Employment candidacy assignment for Turn Industries in Baton Rouge, LA
 -npm install bootstrap@3.3.7 --save
 
 # index.html
--<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+-<139link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
 -<script src="node_modules/bootstrap/dist/js/jquery.js"></script>
 
