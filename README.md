@@ -1,5 +1,5 @@
 # Turner-Industries-Assignment
-Employment candidacy assignment for Turn Industries in Baton Rouge, LA
+Employment candidacy assignment for Turner Industries in Baton Rouge, LA
 
 # Angular Quickstart
 -https://github.com/angular/quickstart
